@@ -1,0 +1,15 @@
+[project]
+name = "sudoku-board-tools"
+version = "0.1.0"
+description = "Validating parser and pretty printer for sudoku puzzle text"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [{ name = "alicesalas" }]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["sudoku"]
