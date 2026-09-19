@@ -81,6 +81,24 @@ different sources tend to just work. What it does *not* tolerate: a
 puzzle that isn't 9 rows of 9 cells each, or a character that isn't
 `1`-`9`, `.`, or `0`.
 
+## Command line
+
+Installing the package puts a `sudoku` command on your path that parses a
+puzzle file, prints it, and reports any conflicts:
+
+```
+$ sudoku puzzle.txt
+5 3 4 | 6 7 8 | 9 1 2
+6 7 2 | 1 9 5 | 3 4 8
+...
+```
+
+Exit code is `0` for a valid board, `1` if the board parses but breaks
+sudoku's rules (conflicts go to stderr, the board is still printed),
+and `2` if the file can't be read or doesn't parse. `--compact` prints
+the 81-character form instead of a grid; `--quiet` skips printing the
+board and only reports conflicts.
+
 ## Development
 
 No dependencies, no build step. Run the tests with:
