@@ -6,6 +6,7 @@ from .board import (
     is_valid,
     parse_board,
 )
+from .solver import solve
 
 __all__ = [
     "Board",
@@ -14,4 +15,5 @@ __all__ = [
     "format_board",
     "is_valid",
     "parse_board",
+    "solve",
 ]

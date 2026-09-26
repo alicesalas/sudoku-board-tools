@@ -81,6 +81,27 @@ different sources tend to just work. What it does *not* tolerate: a
 puzzle that isn't 9 rows of 9 cells each, or a character that isn't
 `1`-`9`, `.`, or `0`.
 
+## Solving
+
+```python
+from sudoku import parse_board, solve
+
+board = parse_board(puzzle_text)
+solution = solve(board)
+if solution is None:
+    print("no solution")
+else:
+    print(solution.to_pretty())
+```
+
+`solve()` does a backtracking search and returns a solved `Board`, or
+`None` if the puzzle has no solution. It raises `ValueError` up front if
+the board already breaks sudoku's rules, since a backtracking search over
+an already-contradictory grid is a programming error, not a normal "no
+solution" outcome — check `find_conflicts()` first if the input isn't
+trusted. If a puzzle has more than one valid solution, `solve()` returns
+whichever one its search happens to reach first.
+
 ## Command line
 
 Installing the package puts a `sudoku` command on your path that parses a
